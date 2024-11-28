@@ -1,0 +1,58 @@
+<div>
+  <form [formGroup]="filtersForm" (ngSubmit)="generateGame()">
+    <label for="platform">Piattaforma:</label>
+    <select id="platform" formControlName="platform">
+      <option *ngFor="let platform of platforms" [value]="platform.id">
+        {{ platform.name }}
+      </option>
+    </select>
+
+    <label for="startDate">Data di inizio:</label>
+    <input id="startDate" type="date" formControlName="startDate" />
+
+    <label for="endDate">Data di fine:</label>
+    <input id="endDate" type="date" formControlName="endDate" />
+
+    <label for="rating">Voto minimo (0-100):</label>
+    <input
+      id="rating"
+      type="number"
+      formControlName="rating"
+      min="0"
+      max="100"
+    />
+    <!-- Messaggio di errore -->
+    <div *ngIf="ratingControl?.invalid && ratingControl?.touched" class="error">
+      Il voto minimo deve essere compreso tra 0 e 100.
+    </div>
+
+    <button type="button" (click)="generateGame()" [disabled]="!canGenerate">
+      Genera
+    </button>
+  </form>
+</div>
+
+<div class="container" *ngIf="game">
+  <div class="card">
+    <h1>{{ game.name }}</h1>
+    <img
+      [src]="game.background_image"
+      alt="{{ game.name }}"
+      class="game-image"
+    />
+    <div class="card-details">
+      <p>
+        <strong><i class="fas fa-calendar-alt"></i> Data di rilascio:</strong>
+        {{ game.released }}
+      </p>
+      <p>
+        <strong><i class="fas fa-align-left"></i> Descrizione:</strong>
+      </p>
+      <p class="description" [innerHTML]="game.description"></p>
+      <p>
+        <strong><i class="fas fa-star"></i> Voto:</strong>
+        <span class="rating">{{ game.metacritic }}</span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.card {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #007BFF;
+  /* Accento di colore */
+}
+
+.card-details {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card-details p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card-details p strong {
+  font-size: 16px;
+  color: #333;
+}
+
+.description {
+  font-style: italic;
+  color: #555;
+}
+
+.rating {
+  font-size: 18px;
+  color: #FFD700;
+  /* Colore dorato per il rating */
+  font-weight: bold;
+}
+
+.fas {
+  margin-right: 8px;
+  color: #007BFF;
+  /* Aggiunta di icone colorate */
+}
